@@ -5,19 +5,24 @@ set -xe
 mode=ffv1-flac
 #mode=h264-aac
 
-duration="-t 10"
-#duration=
+#duration="-t 10"
+duration=
 
 videoDev="-i /dev/video0"
 case $(hostname) in
   b550)
+    # Test system using a Genius F1000X webcam
     audioDev='-ac 1 -i plughw:CARD=F1000X,DEV=0'
     scratchPath=/run/media/$USER/scratch
     ;;
   c236m)
-    # FIXME: call arecord -L to get unambiguous device ID
-    audioDev='-i plughw:'
+    # Capturing system connected to a VCR and MacroSilicon MS210x video grabber
+    audioDev='-i plughw:CARD=MS210X,DEV=0'
     scratchPath=/scratch
+    ;;
+  *)
+    echo "invalid hostname" 1>&2
+    exit 1
     ;;
 esac
 case $mode in
@@ -36,6 +41,10 @@ case $mode in
     videoCodec="$videoCodec -preset superfast -crf 23 -flags +global_header "
     audioCodec='-c:a aac'
     audioCodec="$audioCodec -b:a 192k"
+    ;;
+  *)
+    echo "invalid mode" 1>&2
+    exit 1
     ;;
 esac
 
