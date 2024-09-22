@@ -3,7 +3,7 @@ set -xe
 
 #mode=huffyuv-pcm
 mode=ffv1-flac
-#mode=h264-aac
+#mode=x264-aac
 
 #duration="-t 10"
 duration=
@@ -36,7 +36,7 @@ case $mode in
     videoCodec="$videoCodec -context 1 -slices 24"
     audioCodec='-c:a flac'
     ;;
-  h264-aac)
+  x264-aac)
     videoCodec='-c:v libx264'
     videoCodec="$videoCodec -preset superfast -crf 23 -flags +global_header "
     audioCodec='-c:a aac'
