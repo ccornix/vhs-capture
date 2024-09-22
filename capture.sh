@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 set -xe
 
-#mode=huffyuv-pcm
-mode=ffv1-flac
+mode=huffyuv-pcm
+#mode=ffv1-flac
 #mode=x264-aac
 
 #duration="-t 10"
@@ -17,7 +17,7 @@ case $(hostname) in
     ;;
   c236m)
     # Capturing system connected to a VCR and MacroSilicon MS210x video grabber
-    audioDev='-i plughw:CARD=MS210X,DEV=0'
+    audioDev='-i plughw:CARD=MS210x,DEV=0'
     scratchPath=/scratch
     ;;
   *)
