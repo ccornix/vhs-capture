@@ -15,7 +15,7 @@ case $(hostname) in
     audioDev='-ac 1 -i plughw:CARD=F1000X,DEV=0'
     scratchPath=/run/media/$USER/scratch
     ;;
-  c236m)
+  b560)
     # Capturing system connected to a VCR and MacroSilicon MS210x video grabber
     audioDev='-i plughw:CARD=MS210x,DEV=0'
     scratchPath=/scratch
