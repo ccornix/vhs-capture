@@ -1,8 +1,11 @@
 #!/usr/bin/env sh
 set -xe
 
-mode=huffyuv-pcm
-#mode=ffv1-flac
+# FIXME: fails onm b560
+#mode=huffyuv-pcm
+
+# FIXME: framedrop detected
+mode=ffv1-flac
 #mode=x264-aac
 
 #duration="-t 10"
